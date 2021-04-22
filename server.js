@@ -1,9 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const ShortUrl = require('./models/shortUrl')
+const ShortUrl = require('./models/shortUrls')
 const app = express()
 
-mongoose.connect('mongodb+srv://fender2225:fender2225@cluster0.zq2ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost/urlShortener', {
   useNewUrlParser: true, useUnifiedTopology: true
 })
 
