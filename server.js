@@ -5,9 +5,18 @@ const app = express()
 
 /* esto funciona para una base de datos local, 
 pero para hacer el deploy en Heroku necesitamos otros datos */ 
-mongoose.connect('mongodb+srv://fender2225:fender2225@cluster0.zq2ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-  useNewUrlParser: true, useUnifiedTopology: true
-})
+// mongoose.connect('mongodb+srv://fender2225:fender2225@cluster0.zq2ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+//   useNewUrlParser: true, useUnifiedTopology: true
+// })
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://fender2225:fender2225@cluster0.zq2ft.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongoose.connect(new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true }));
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 //con esto nos aseguramos que ejs sea el engine que usamos para tomar los datos del form
 app.set('view engine', 'ejs')
