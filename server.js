@@ -3,17 +3,6 @@ const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrls')
 const app = express()
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://root:5Z7mwkfUOuhvZfLs@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("new_database").collection("heroku_shortener");
-
-//   console.log("error:", err);
-//   console.log("collection", collection);
-//   client.close();
-// });
-
 /* esto funciona para una base de datos local, 
 pero para hacer el deploy en Heroku necesitamos otros datos */ 
 mongoose.connect('mongodb+srv://root:5Z7mwkfUOuhvZfLs@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority', {
