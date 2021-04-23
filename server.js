@@ -5,7 +5,7 @@ const app = express()
 
 /* esto funciona para una base de datos local, 
 pero para hacer el deploy en Heroku necesitamos otros datos */ 
-mongoose.connect(process.env.CLUSTER_KEY_SANDBOX, {
+mongoose.connect('mongodb+srv://root:root@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true
 })
 
