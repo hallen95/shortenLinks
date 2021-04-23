@@ -20,7 +20,7 @@ mongoose.connect(process.env.CLUSTER_KEY_SANDBOX, {
 
 //con esto nos aseguramos que ejs sea el engine que usamos para tomar los datos del form
 app.set('view engine', 'ejs')
-app.set('port', process.env.PORT || 5000)
+app.set('port', process.env.PORT || 5000);
 
 app.use(express.urlencoded({ extended: false }))
 
