@@ -3,11 +3,22 @@ const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrls')
 const app = express()
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://root:5Z7mwkfUOuhvZfLs@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("new_database").collection("heroku_shortener");
+  // perform actions on the collection object
+  console.log("error:", err);
+  console.log("collection", collection);
+  client.close();
+});
+
 /* esto funciona para una base de datos local, 
 pero para hacer el deploy en Heroku necesitamos otros datos */ 
-mongoose.connect('mongodb+srv://root:5Z7mwkfUOuhvZfLs@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority', {
-  useNewUrlParser: true, useUnifiedTopology: true
-})
+// mongoose.connect('mongodb+srv://root:5Z7mwkfUOuhvZfLs@cluster0.zq2ft.mongodb.net/new_database?retryWrites=true&w=majority', {
+//   useNewUrlParser: true, useUnifiedTopology: true
+// })
 
 //con esto nos aseguramos que ejs sea el engine que usamos para tomar los datos del form
 app.set('view engine', 'ejs')
